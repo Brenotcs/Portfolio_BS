@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante a animação de rolagem suave para toda a página */
+html {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: visible;
+  position: relative;
+  height: unset;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+  background-color: #111827;
+}
+
+#home, #servicos, #tecnologias, #contato {
+  scroll-margin-top: 80px; 
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/*
+  Animação do Pop-up CORRIGIDA
+*/
+@keyframes popup-appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%); /* Posição inicial: um pouco abaixo e transparente */
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -110%); /* Posição final: no local desejado e totalmente visível */
+  }
+}
+
+.animate-popup-appear {
+  animation: popup-appear 0.3s ease-out forwards;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
