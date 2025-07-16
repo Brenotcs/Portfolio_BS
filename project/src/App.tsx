@@ -1,53 +1,42 @@
-import React from 'react';
-import Sidebar from './components/Sidebar';
+import React, { useEffect, useState } from 'react';
 import HeroSection from './components/HeroSection';
-import ServicesPanel from './components/ServicesPanel';
-import TechnologiesPanel from './components/TechnologiesPanel';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import { useScrollAnimation } from './hooks/useScrollAnimation';
+import Loader from './components/Loader';
 
 function App() {
-  const containerRef = useScrollAnimation();
+  const [loading, setLoading] = useState(() => {
+    return sessionStorage.getItem('hasVisited') !== 'true';
+  });
+  const [fadeOut, setFadeOut] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => setFadeOut(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (fadeOut) {
+      const fadeTimer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('hasVisited', 'true');
+        setTimeout(() => setHeroVisible(true), 50);
+      }, 700);
+      return () => clearTimeout(fadeTimer);
+    }
+  }, [fadeOut]);
+
+  useEffect(() => {
+    if (!loading) setHeroVisible(true);
+  }, [loading]);
+
+  if (loading) {
+    return <Loader fadeOut={fadeOut} />;
+  }
 
   return (
-    <div className="relative">
-      <Sidebar />
-      
-      <section id="home">
-        <HeroSection />
-      </section>
-      
-      {/* O container parallax recebe o ID para ser observado pela sidebar */}
-      <div id="parallax-zone" style={{ overflowX: 'hidden' }}>
-        <div 
-          ref={containerRef}
-          className="flex flex-nowrap"
-          style={{ width: '500%', height: '100vh' }}
-        >
-          <div className="panel flex-shrink-0" style={{ width: '20%', height: '100%' }}>
-            <ServicesPanel panelNumber={1} />
-          </div>
-          <div className="panel flex-shrink-0" style={{ width: '20%', height: '100%' }}>
-            <ServicesPanel panelNumber={2} />
-          </div>
-          <div className="panel flex-shrink-0" style={{ width: '20%', height: '100%' }}>
-            <ServicesPanel panelNumber={3} />
-          </div>
-          <div className="panel flex-shrink-0" style={{ width: '20%', height: '100%' }}>
-            <TechnologiesPanel />
-          </div>
-        </div>
-      </div> 
-      
-      <section id="contato">
-        <ContactSection />
-      </section>
-      
-      <div id="footer">
-        <Footer />
-      </div>
-    </div>
+    <HeroSection animateIn={heroVisible} />
   );
 }
 

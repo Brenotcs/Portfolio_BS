@@ -92,3 +92,56 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+@keyframes starsIn {
+  0% {
+    background-image: none;
+    opacity: 1;
+  }
+  1% {
+    background-image: url('./assets/images/stars.png');
+    opacity: 0.2;
+  }
+  100% {
+    background-image: url('./assets/images/stars.png');
+    opacity: 1;
+  }
+}
+@keyframes starsOut {
+  0% {
+    background-image: url('./assets/images/stars.png');
+    opacity: 1;
+  }
+  99% {
+    background-image: url('./assets/images/stars.png');
+    opacity: 0.2;
+  }
+  100% {
+    background-image: none;
+    opacity: 1;
+  }
+}
+
+.stars-hover-text {
+  background: linear-gradient(135deg, #fff, #e0e7ff); /* fallback */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: background-image 0.6s, opacity 0.6s;
+}
+.stars-hover-text.stars-in {
+  animation: starsIn 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.stars-hover-text.stars-out {
+  animation: starsOut 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.stars-hover-text:hover {
+  background-image: url('./assets/images/stars.png');
+  background-size: cover;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
