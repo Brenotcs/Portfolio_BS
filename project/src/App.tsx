@@ -81,7 +81,7 @@ function App() {
       <div id="scroll-progress-bar" ref={progressBarRef} />
       {/* Conteúdo principal */}
       <div
-        className={`relative w-full transition-opacity duration-500 z-20 ${fadeHero ? 'opacity-0' : 'opacity-100'}`}
+        className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
         style={{ minHeight: '100vh' }}
       >
         <HeroSection animateIn={heroVisible} />

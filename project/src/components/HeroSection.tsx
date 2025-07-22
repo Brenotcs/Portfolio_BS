@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 interface HeroSectionProps {
   animateIn?: boolean;
 }
+
+const nameRevealVariants = {
+  hidden: { 
+    opacity: 0, 
+    width: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  },
+  visible: (customDelay = 0) => ({ 
+    opacity: 1,
+    width: 'auto',
+    transition: { duration: 0.8, ease: "easeOut", delay: customDelay }
+  }),
+};
 
 const HeroSection: React.FC<HeroSectionProps> = ({ animateIn }) => {
   const [showRestOfName, setShowRestOfName] = useState(false);
@@ -29,59 +42,52 @@ const HeroSection: React.FC<HeroSectionProps> = ({ animateIn }) => {
       <div className="absolute bottom-0 right-0 translate-x-1/3 w-[800px] h-[800px] bg-gradient-to-bl from-gray-500/40 to-transparent rounded-full blur-3xl animate-pulse delay-700" />
 
       {/* Container de conteúdo */}
-      <div className="z-10 flex flex-col items-center text-center">
-        {/* Nome Principal */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 flex flex-wrap justify-center items-end">
-          <span className="font-orbitron">B</span>
-          <AnimatePresence>
-            {showRestOfName && (
-              <motion.span
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: "auto" }}
-                exit={{ opacity: 0, width: 0 }}
-                // Duração aumentada para uma animação mais lenta
-                transition={{ duration: 0.9, ease: "easeOut" }}
-                className="inline-block"
-              >
-                reno
-              </motion.span>
-            )}
-          </AnimatePresence>
-          <span className="w-4 md:w-6"></span>
-          <span className="font-orbitron">S</span>
-          <AnimatePresence>
-            {showRestOfName && (
-              <motion.span
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: "auto" }}
-                exit={{ opacity: 0, width: 0 }}
-                // Duração aumentada e delay mantido
-                transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-                className="inline-block"
-              >
-                ouza
-              </motion.span>
-            )}
-          </AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={animateIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.9, ease: 'easeOut' }}
+        className="z-10 flex flex-col items-center text-center"
+      >
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 flex flex-col justify-center items-center">
+          
+          {/* Linha "Breno" */}
+          <span className="font-orbitron flex items-baseline">
+            B
+            <motion.span
+              variants={nameRevealVariants}
+              initial="hidden"
+              animate={showRestOfName ? "visible" : "hidden"}
+              className="inline-block overflow-hidden"
+            >
+              reno
+            </motion.span>
+          </span>
+
+          {/* Linha "Souza" */}
+          <span className="font-orbitron flex items-baseline">
+            S
+            <motion.span
+              variants={nameRevealVariants}
+              custom={0.2}
+              initial="hidden"
+              animate={showRestOfName ? "visible" : "hidden"}
+              className="inline-block overflow-hidden"
+            >
+              ouza
+            </motion.span>
+          </span>
         </h1>
 
         {/* Subtítulo */}
-        <motion.p
-          initial={{ y: 40, opacity: 0 }}
-          animate={showRestOfName ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
-          // Atraso e duração ajustados para uma sequência mais lenta
-          transition={{ delay: 1.2, duration: 1.0, ease: "easeOut" }}
-          className="mt-4 text-lg md:text-xl text-blue-200/80 max-w-xl"
-        >
+        <p className="mt-4 text-lg md:text-xl text-blue-200/80 max-w-xl">
           Desenvolvedor Web FullStack e Soluções Digitais
-        </motion.p>
-      </div>
+        </p>
+      </motion.div>
 
       {/* Ícone de seta para baixo */}
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={showRestOfName ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        // Atraso e duração ajustados
         transition={{ delay: 1.8, duration: 1.0, ease: "easeOut" }}
         className="z-20 mb-8 flex flex-col items-center"
         aria-label="Ir para próxima sessão"
