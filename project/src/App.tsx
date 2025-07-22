@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import HeroSection from './components/HeroSection';
 import Loader from './components/Loader';
 import CompetenciasPanel from './components/CompetenciasPanel';
+import ProjetosCarousel from './components/ProjetosCarousel';
 
 function App() {
   const [loading, setLoading] = useState(() => {
@@ -90,6 +91,7 @@ function App() {
         className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
       >
         <CompetenciasPanel />
+        <ProjetosCarousel />
       </div>
     </div>
   );

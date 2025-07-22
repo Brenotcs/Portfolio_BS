@@ -1,85 +1,131 @@
 import React from "react";
 import minhaFoto from "../assets/images/foto_perfil.jpg";
-
-// Para os ícones sociais, usaremos Font Awesome CDN (ou pode ser substituído por outro pacote de ícones se já houver)
-// Certifique-se de que o Font Awesome está incluído no index.html ou use outro pacote de ícones React se preferir
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedinIn,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const CompetenciasPanel: React.FC = () => {
   return (
     <section
       id="competencias"
-      className="w-full min-h-screen flex flex-col justify-center items-center bg-black relative overflow-hidden bg-noise"
+      className="w-full min-h-screen flex flex-col justify-center items-center bg-black relative overflow-hidden bg-noise py-16"
     >
       {/* Logo BS no topo */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 flex justify-center w-full pointer-events-none">
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 flex justify-center w-full">
         <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
       </div>
-      <div className="card flex flex-col md:flex-row items-center justify-center w-[75vw] max-w-[650px] p-8 md:p-12 bg-[#272524] bg-opacity-90 rounded-3xl shadow-2xl gap-8 mt-24 mb-12 relative z-10">
+
+      {/* Card Principal */}
+      <div className="card flex flex-col md:flex-row items-center justify-center w-[90vw] md:w-auto max-w-[620px] bg-[#272524] bg-opacity-90 rounded-3xl shadow-2xl relative z-10">
+        
         {/* Avatar */}
         <img
           src={minhaFoto}
           alt="Foto de Breno Souza"
-          className="max-w-[280px] w-[36vw] h-[300px] object-cover rounded-3xl md:rounded-3xl shadow-xl md:ml-[-60px] md:mr-8 transition-all duration-300 border-4 border-[#272524]"
+          className="relative z-20"
         />
+
         {/* Conteúdo */}
-        <div className="flex flex-col items-center md:items-start text-white w-full">
-          <p className="text-[13px] font-normal mb-[30px] opacity-50 max-w-[360px] mt-2 text-center md:text-left">
+        <div className="relative z-10 flex flex-col items-center md:items-start text-white w-full p-8 pt-0 md:p-0 md:pl-8">
+          <p className="text-[13px] font-normal mb-8 opacity-50 max-w-[360px] text-center md:text-left">
             Olá! Meu nome é Breno Souza e sou apaixonado por tecnologia desde criança. Comecei minha jornada desenvolvendo pequenos projetos e hoje atuo como desenvolvedor web fullstack, criando soluções digitais modernas e eficientes.
           </p>
-          {/* Socials */}
-          <div className="socials flex gap-4 justify-center md:justify-start w-full mt-2">
-            <button className="relative border-0 bg-transparent text-[#f8f8f8] p-0">
-              <span className="absolute z-0 top-1/2 left-1/2 w-[52px] h-[52px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-pink-300 to-yellow-200 opacity-80 transition-all duration-300"></span>
-              <i className="fa-brands fa-dribbble relative z-10 border-2 border-[#272524] bg-[#3fb39] grid place-items-center text-[24px] w-[50px] h-[50px] rounded-full"></i>
-            </button>
-            <button className="relative border-0 bg-transparent text-[#f8f8f8] p-0">
-              <span className="absolute z-0 top-1/2 left-1/2 w-[52px] h-[52px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-pink-300 to-yellow-200 opacity-80 transition-all duration-300"></span>
-              <i className="fa-brands fa-pinterest relative z-10 border-2 border-[#272524] bg-[#3fb39] grid place-items-center text-[24px] w-[50px] h-[50px] rounded-full"></i>
-            </button>
-            <button className="relative border-0 bg-transparent text-[#f8f8f8] p-0">
-              <span className="absolute z-0 top-1/2 left-1/2 w-[52px] h-[52px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-pink-300 to-yellow-200 opacity-80 transition-all duration-300"></span>
-              <i className="fa-brands fa-codepen relative z-10 border-2 border-[#272524] bg-[#3fb39] grid place-items-center text-[24px] w-[50px] h-[50px] rounded-full"></i>
-            </button>
+          
+          <div className="socials flex gap-4 justify-center md:justify-start w-full">
+            
+            {/* GitHub */}
+            <a 
+              href="https://github.com/Brenotcs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Link para o perfil do GitHub"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+            >
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-gray-400 to-gray-700 opacity-80 transition-all duration-300"></span>
+              <FontAwesomeIcon icon={faGithub} className="relative z-10 text-[28px]" />
+            </a>
+            
+            {/* LinkedIn */}
+            <a 
+              href="https://www.linkedin.com/in/brenotcsouza/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Link para o perfil do LinkedIn"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+            >
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-700 opacity-80 transition-all duration-300"></span>
+              <FontAwesomeIcon icon={faLinkedinIn} className="relative z-10 text-[26px]" />
+            </a>
+
+            {/* Instagram */}
+            <a 
+              href="https://www.instagram.com/brenotcs/?hl=pt-br" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Link para o perfil do Instagram"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+            >
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 opacity-80 transition-all duration-300"></span>
+              <FontAwesomeIcon icon={faInstagram} className="relative z-10 text-[28px]" />
+            </a>
+
           </div>
         </div>
       </div>
-      {/* Responsividade extra para avatar circular em telas pequenas */}
+
+      {/* Estilos para responsividade */}
       <style>{`
-        @media (max-width: 600px) {
+        /* Layout do Card em Desktop */
+        @media (min-width: 768px) {
           .card {
-            margin: 0 40px;
-            padding-left: 50px;
-            padding-right: 50px;
-            padding-bottom: 60px;
-            width: 100%;
-            text-align: center;
-            flex-direction: column;
-          }
-          .card h2 {
-            margin-right: 0;
-            font-size: 26px;
+            padding: 48px 40px 48px 0; /* Ajusta o padding para o layout com a imagem à esquerda */
           }
           .card img {
-            margin: -100px 0 30px 0;
-            width: 100%;
-            max-width: 1000px;
-            height: 250px;
+            width: 280px;
+            height: 300px;
+            object-fit: cover;
             border-radius: 24px;
-          }
-          .card p {
-            max-width: 360px;
-          }
-          .socials {
-            justify-content: center;
+            margin-left: -60px; /* Efeito da imagem "saindo" do card */
+            border: 4px solid #272524;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4);
           }
         }
+
+        /* Layout do Card em Mobile */
+        @media (max-width: 767px) {
+          .card {
+            padding: 0 32px 48px 32px;
+            margin-top: 100px; /* Espaço para a foto acima */
+            text-align: center;
+          }
+          .card img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-top: -125px; 
+            margin-bottom: 24px;
+            border: 4px solid #272524;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.4);
+          }
+        }
+
+      
         @media (max-width: 440px) {
           .card img {
-            height: 50vw;
             width: 50vw;
-            border-radius: 50%;
-            border: 12px solid #272524;
-            margin: -140px 0 30px 0;
+            height: 50vw;
+            max-width: 180px; 
+            max-height: 180px; 
+            border-radius: 50%; 
+            border-width: 8px;
+            margin-top: -25vw; 
+          }
+          .card {
+            margin-top: 25vw;
           }
         }
       `}</style>
