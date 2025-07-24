@@ -9,11 +9,9 @@ import {
   HiOutlineBriefcase,
 } from 'react-icons/hi';
 
-// O caminho da logo deve ser relativo ao arquivo da Sidebar
 import finexLogo from '../assets/images/FINEXLOGO.COR.B-8.png';
 
 const NavItem = ({ href, icon, label }: { href: string; icon: React.ReactNode | string; label: string }) => {
-  // Função para lidar com a rolagem suave ao clicar
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = href.substring(1);
@@ -25,7 +23,6 @@ const NavItem = ({ href, icon, label }: { href: string; icon: React.ReactNode | 
   };
   
   return (
-    // Este 'group' continua sem nome, referindo-se apenas a este item.
     <a
       href={href}
       onClick={handleSmoothScroll}
@@ -36,7 +33,6 @@ const NavItem = ({ href, icon, label }: { href: string; icon: React.ReactNode | 
       ) : (
         icon
       )}
-      {/* Este group-hover responde apenas ao 'group' do <a> acima, e não ao grupo da sidebar. */}
       <span
         className="absolute left-full ml-4 px-3 py-2 whitespace-nowrap rounded-md text-sm font-medium
                    bg-gray-900 text-white opacity-0 group-hover:opacity-100 transition-opacity
@@ -66,11 +62,9 @@ const Sidebar: React.FC = () => {
         {isOpen ? <HiX size={32} /> : <HiOutlineMenuAlt2 size={32} />}
       </button>
 
-      {/* ALTERAÇÃO 1: O grupo foi nomeado para 'sidebar' para diferenciá-lo dos grupos dos ícones. */}
       <div className="group/sidebar fixed top-0 left-0 h-full z-30">
         <aside
-          // ALTERAÇÃO 2: O hover agora mira especificamente no grupo nomeado 'sidebar'.
-          className={`h-full w-[72px] bg-[#14274C]
+          className={`h-full w-[72px] bg-[#14274C]/30 backdrop-blur-lg
                       transition-transform duration-300 ease-in-out
                       -translate-x-full group-hover/sidebar:translate-x-0
                       ${isOpen ? '!translate-x-0' : ''}`}
