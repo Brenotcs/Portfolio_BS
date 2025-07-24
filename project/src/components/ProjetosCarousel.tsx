@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react'; 
 
 import africa360Img from '../assets/images/projetos/Africa360.png';
 import finexDevImg from '../assets/images/projetos/FinexDev.png';
@@ -9,28 +9,31 @@ const meusProjetos = [
   {
     titulo: 'Landing Page da Finex Solutions',
     descricao: 'Com colaboração da equipe da Finex Solutions, desenvolvemos uma landing page moderna e responsiva. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
-    imagem: finexSiteImg
+    imagem: finexSiteImg,
+    cor: '#0a2761ff' 
   },
   {
     titulo: 'Plataforma FinexDev',
     descricao: 'Site com finalidade de demonstrar as habilidades da nossa equipe de desenvolvimento, com foco em projetos de software e soluções tecnológicas. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
-    imagem: finexDevImg
+    imagem: finexDevImg,
+    cor: '#2e0d55ff' 
   },
   {
     titulo: 'Landing Page JC Studios',
     descricao: 'Website para a JC Studios, uma empresa de web design. O site é responsivo e otimizado para dispositivos móveis assim como os outros. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
-    imagem: jcStudiosImg
+    imagem: jcStudiosImg,
+    cor: '#424242' 
   },
   {
     titulo: 'Site do Projeto Africa360',
     descricao: 'Website para o projeto Africa360, que visa promover a cultura africana através de uma plataforma digital. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
-    imagem: africa360Img
+    imagem: africa360Img,
+    cor: '#6d5537ff' 
   }
 ];
 
 const ProjetosCarousel: React.FC = () => {
   const [projetoAtual, setProjetoAtual] = useState(0);
-  // Refs para obter acesso direto aos botões mobile
   const prevButtonMobileRef = useRef<HTMLButtonElement>(null);
   const nextButtonMobileRef = useRef<HTMLButtonElement>(null);
 
@@ -42,31 +45,25 @@ const ProjetosCarousel: React.FC = () => {
     setProjetoAtual((prev) => (prev - 1 + meusProjetos.length) % meusProjetos.length);
   };
   
-  // Função que força a re-animação
   const playMobileAnimation = (buttonRef: React.RefObject<HTMLButtonElement>) => {
     const button = buttonRef.current;
     if (button) {
-      // 1. Remove a classe para garantir que o estado está limpo
       button.classList.remove('clicked');
-      
-      // 2. Força o navegador a "repintar" o elemento. Este é o truque principal.
-      void button.offsetWidth; 
-
-      // 3. Adiciona a classe novamente para disparar a animação
+      void button.offsetWidth;
       button.classList.add('clicked');
-      
-      // 4. Limpa a classe após a animação terminar
       setTimeout(() => {
         button.classList.remove('clicked');
-      }, 450); // Duração um pouco maior que a transição de 0.4s
+      }, 450);
     }
   };
 
   const projeto = meusProjetos?.[projetoAtual];
 
+  const corDeFundoAtual = projeto ? projeto.cor : '#2a2a2e';
+
   if (!projeto) {
     return (
-      <div className="container-geral">
+      <div className="container-geral" style={{ backgroundColor: '#2a2a2e' }}>
         <p>Carregando projetos...</p>
       </div>
     );
@@ -78,7 +75,8 @@ const ProjetosCarousel: React.FC = () => {
     <>
       <style>{`
         .container-geral {
-          background-color: #2a2a2e;
+          /* A cor de fundo será definida via style inline, mas mantemos uma padrão */
+          background-color: #2a2a2e; 
           width: 100%;
           min-height: 100vh;
           display: flex;
@@ -88,6 +86,8 @@ const ProjetosCarousel: React.FC = () => {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           position: relative;
           overflow: hidden;
+          /* Adicionada a transição para a mudança de cor suave */
+          transition: background-color 0.5s ease-in-out; 
         }
         .bg-noise::before {
           content: "";
@@ -197,7 +197,8 @@ const ProjetosCarousel: React.FC = () => {
         }
       `}</style>
 
-      <div className="container-geral bg-noise">
+      {/* A cor de fundo é aplicada dinamicamente aqui */}
+      <div className="container-geral bg-noise" style={{ backgroundColor: corDeFundoAtual }}>
         <div className="carousel-wrapper">
           
           <div className="navegacao-desktop">
@@ -219,7 +220,7 @@ const ProjetosCarousel: React.FC = () => {
           
           <div className="navegacao-mobile">
             <button 
-              ref={prevButtonMobileRef} // Adiciona a ref
+              ref={prevButtonMobileRef}
               onClick={() => {
                 projetoAnterior();
                 playMobileAnimation(prevButtonMobileRef);
@@ -230,7 +231,7 @@ const ProjetosCarousel: React.FC = () => {
               <span className="botao-texto">&#8592;</span>
             </button>
             <button
-              ref={nextButtonMobileRef} // Adiciona a ref
+              ref={nextButtonMobileRef}
               onClick={() => {
                 proximoProjeto();
                 playMobileAnimation(nextButtonMobileRef);
