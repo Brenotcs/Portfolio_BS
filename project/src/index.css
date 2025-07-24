@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 
-/* Garante a animação de rolagem suave para toda a página */
 html {
   overflow-y: scroll;
   height: 100%;
@@ -27,23 +26,21 @@ body {
   text-align: center;
   margin: 0;
   line-height: 1.6;
-  background-color: #111827;
+  background-color: #0D1732;
 }
 
 #home, #servicos, #tecnologias, #contato {
   scroll-margin-top: 80px; 
 }
 
-/* Esconde a scrollbar nativa */
 body, html {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 body::-webkit-scrollbar, html::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
-/* Barra de progresso do scroll */
 #scroll-progress-bar {
   position: fixed;
   top: 0;
@@ -55,7 +52,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   transition: width 0.2s ease;
 }
 
-/* Animation utilities */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -67,34 +63,15 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/*
-  Animação do Pop-up CORRIGIDA
-*/
 @keyframes popup-appear {
   from {
     opacity: 0;
-    transform: translate(-50%, -100%); /* Posição inicial: um pouco abaixo e transparente */
+    transform: translate(-50%, -100%);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -110%); /* Posição final: no local desejado e totalmente visível */
+    transform: translate(-50%, -110%);
   }
-}
-
-.animate-popup-appear {
-  animation: popup-appear 0.3s ease-out forwards;
-}
-
-/* Gradient text effect */
-.gradient-text {
-  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 @keyframes starsIn {
@@ -126,8 +103,44 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   }
 }
 
+@keyframes noiseMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 40px;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-popup-appear {
+  animation: popup-appear 0.3s ease-out forwards;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .stars-hover-text {
-  background: linear-gradient(135deg, #fff, #e0e7ff); /* fallback */
+  background: linear-gradient(135deg, #fff, #e0e7ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -155,7 +168,6 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   letter-spacing: 0.02em;
 }
 
-/* Background de ruído sutil */
 .bg-noise {
   position: relative;
   background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noiseFilter)" opacity="0.18"/></svg>');
@@ -163,11 +175,22 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   animation: noiseMove 2.5s linear infinite;
 }
 
-@keyframes noiseMove {
-  0% {
-    background-position: 0 0;
+@layer components {
+  .blue-noise-bg {
+    position: relative;
+    background: linear-gradient(45deg, #0D1732, #182a5b, #0D1732);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
   }
-  100% {
-    background-position: 60px 40px;
+  .blue-noise-bg::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+    opacity: 0.1;
+    background-size: 200px 200px;
+    animation: noiseMove 2.5s linear infinite;
+    pointer-events: none;
+    z-index: 0;
   }
 }

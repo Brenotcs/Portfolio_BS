@@ -31,44 +31,44 @@ const CompetenciasPanel: React.FC = () => {
         {/* Conteúdo */}
         <div className="relative z-10 flex flex-col items-center md:items-start text-white w-full p-8 pt-0 md:p-0 md:pl-8">
           <p className="text-[13px] font-normal mb-8 opacity-50 max-w-[360px] text-center md:text-left">
-            Olá! Meu nome é Breno Souza e sou apaixonado por tecnologia desde criança. Comecei minha jornada desenvolvendo pequenos projetos e hoje atuo como desenvolvedor web fullstack, criando soluções digitais modernas e eficientes.
+          Meu nome é Breno, sou desenvolvedor web fullstack e apaixonado por tecnologia. Minha jornada começou com pequenos projetos e hoje crios soluções digitais modernas e eficientes. No contexto acadêmico estou cursando Análise e Desenvolvimento de Sistemas e Engenharia de Software, e estou sempre buscando aprender e crescer como desenvolvedor.
           </p>
           
           <div className="socials flex gap-4 justify-center md:justify-start w-full">
             
-            {/* GitHub */}
+            {/* GitHub com animação */}
             <a 
               href="https://github.com/Brenotcs" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Link para o perfil do GitHub"
-              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white group transition-transform duration-300 hover:scale-110"
             >
-              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-gray-400 to-gray-700 opacity-80 transition-all duration-300"></span>
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-gray-400 to-gray-700 opacity-80 transition-all duration-300 group-hover:opacity-100"></span>
               <FontAwesomeIcon icon={faGithub} className="relative z-10 text-[28px]" />
             </a>
             
-            {/* LinkedIn */}
+            {/* LinkedIn com animação */}
             <a 
               href="https://www.linkedin.com/in/brenotcsouza/" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Link para o perfil do LinkedIn"
-              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white group transition-transform duration-300 hover:scale-110"
             >
-              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-700 opacity-80 transition-all duration-300"></span>
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-700 opacity-80 transition-all duration-300 group-hover:opacity-100"></span>
               <FontAwesomeIcon icon={faLinkedinIn} className="relative z-10 text-[26px]" />
             </a>
 
-            {/* Instagram */}
+            {/* Instagram com animação */}
             <a 
               href="https://www.instagram.com/brenotcs/?hl=pt-br" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Link para o perfil do Instagram"
-              className="relative grid place-items-center w-[52px] h-[52px] text-white"
+              className="relative grid place-items-center w-[52px] h-[52px] text-white group transition-transform duration-300 hover:scale-110"
             >
-              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 opacity-80 transition-all duration-300"></span>
+              <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 opacity-80 transition-all duration-300 group-hover:opacity-100"></span>
               <FontAwesomeIcon icon={faInstagram} className="relative z-10 text-[28px]" />
             </a>
 

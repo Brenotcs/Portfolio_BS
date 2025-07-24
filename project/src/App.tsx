@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import HeroSection from './components/HeroSection';
 import Loader from './components/Loader';
 import CompetenciasPanel from './components/CompetenciasPanel';
+import FinexPanel from './components/FinexPanel';
 import ProjetosCarousel from './components/ProjetosCarousel';
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
         className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
       >
         <CompetenciasPanel />
+        <FinexPanel />
         <ProjetosCarousel />
       </div>
     </div>
