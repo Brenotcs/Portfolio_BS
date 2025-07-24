@@ -1,21 +1,30 @@
 import React, { useState, useRef } from 'react';
 
-// --- DADOS DOS PROJETOS ---
+import africa360Img from '../assets/images/projetos/Africa360.png';
+import finexDevImg from '../assets/images/projetos/FinexDev.png';
+import finexSiteImg from '../assets/images/projetos/Finexsite.png';
+import jcStudiosImg from '../assets/images/projetos/JCstudios.png';
+
 const meusProjetos = [
   {
-    titulo: 'Plataforma de Gestão',
-    descricao: 'Plataforma inovadora para gerenciamento de tarefas, construída com React e Node.js, focada em performance para equipes ágeis.',
-    imagem: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    titulo: 'Landing Page da Finex Solutions',
+    descricao: 'Com colaboração da equipe da Finex Solutions, desenvolvemos uma landing page moderna e responsiva. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
+    imagem: finexSiteImg
   },
   {
-    titulo: 'Loja Virtual Moderna',
-    descricao: 'Loja virtual completa com integração de pagamentos e painel de administração. Desenvolvida com a tecnologia Next.js.',
-    imagem: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    titulo: 'Plataforma FinexDev',
+    descricao: 'Site com finalidade de demonstrar as habilidades da nossa equipe de desenvolvimento, com foco em projetos de software e soluções tecnológicas. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
+    imagem: finexDevImg
   },
   {
-    titulo: 'Aplicativo de Bem-Estar',
-    descricao: 'Aplicativo para monitoramento de saúde e bem-estar, disponível para iOS e Android, desenvolvido com React Native.',
-    imagem: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    titulo: 'Landing Page JC Studios',
+    descricao: 'Website para a JC Studios, uma empresa de web design. O site é responsivo e otimizado para dispositivos móveis assim como os outros. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
+    imagem: jcStudiosImg
+  },
+  {
+    titulo: 'Site do Projeto Africa360',
+    descricao: 'Website para o projeto Africa360, que visa promover a cultura africana através de uma plataforma digital. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
+    imagem: africa360Img
   }
 ];
 
@@ -68,7 +77,6 @@ const ProjetosCarousel: React.FC = () => {
   return (
     <>
       <style>{`
-        /* O CSS permanece o mesmo da versão anterior */
         .container-geral {
           background-color: #2a2a2e;
           width: 100%;
