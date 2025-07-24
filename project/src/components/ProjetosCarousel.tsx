@@ -5,7 +5,6 @@ import finexDevImg from '../assets/images/projetos/FinexDev.png';
 import finexSiteImg from '../assets/images/projetos/Finexsite.png';
 import jcStudiosImg from '../assets/images/projetos/JCstudios.png';
 
-
 const meusProjetos = [
   {
     titulo: 'Landing Page da Finex Solutions',

@@ -35,7 +35,6 @@ const FinexPanel: React.FC = () => {
               className="h-12 w-auto"
             />
 
-            {/* ANIMAÇÃO ADICIONADA AQUI */}
             <a 
               href="https://finexsolutions.com.br/" 
               target="_blank" 

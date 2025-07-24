@@ -5,6 +5,7 @@ import CompetenciasPanel from './components/CompetenciasPanel';
 import FinexPanel from './components/FinexPanel';
 import ProjetosCarousel from './components/ProjetosCarousel';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [loading, setLoading] = useState(() => {
@@ -40,9 +41,10 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const competencias = document.getElementById('competencias');
-      if (competencias) {
-        const rect = competencias.getBoundingClientRect();
+      // ALTERAÇÃO: Atualizado de 'competencias' para 'sobre-mim' para corresponder ao novo ID.
+      const sobreMimSection = document.getElementById('sobre-mim');
+      if (sobreMimSection) {
+        const rect = sobreMimSection.getBoundingClientRect();
         if (rect.top <= window.innerHeight / 2) {
           setFadeHero(true);
           setTimeout(() => setShowCompetencias(true), 400);
@@ -80,25 +82,40 @@ function App() {
 
   return (
     <div>
-      <div id="scroll-progress-bar" ref={progressBarRef} />
+      <Sidebar />
       
-      <main>
-        <div
-          className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
-          style={{ minHeight: '100vh' }}
-        >
-          <HeroSection animateIn={heroVisible} />
-        </div>
-        <div
-          className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <CompetenciasPanel />
-          <FinexPanel />
-          <ProjetosCarousel />
-        </div>
-      </main>
+      <div className="transition-all duration-400">
+        <div id="scroll-progress-bar" ref={progressBarRef} />
+        
+        <main>
+          {/* ALTERAÇÃO: Adicionado <section> com id="home" para a navegação */}
+          <section
+            id="home"
+            className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
+            style={{ minHeight: '100vh' }}
+          >
+            <HeroSection animateIn={heroVisible} />
+          </section>
 
-      <Footer />
+          {/* Este div continua controlando a animação de fade-in para o bloco de conteúdo abaixo */}
+          <div
+            className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
+          >
+            {/* ALTERAÇÃO: Cada componente agora está em sua própria <section> com seu respectivo ID */}
+            <section id="sobre-mim">
+              <CompetenciasPanel />
+            </section>
+            <section id="finex">
+              <FinexPanel />
+            </section>
+            <section id="projetos">
+              <ProjetosCarousel />
+            </section>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
     </div>
   );
 }
