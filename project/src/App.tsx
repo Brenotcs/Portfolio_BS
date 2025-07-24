@@ -4,6 +4,7 @@ import Loader from './components/Loader';
 import CompetenciasPanel from './components/CompetenciasPanel';
 import FinexPanel from './components/FinexPanel';
 import ProjetosCarousel from './components/ProjetosCarousel';
+import Footer from './components/Footer';
 
 function App() {
   const [loading, setLoading] = useState(() => {
@@ -14,6 +15,8 @@ function App() {
   const [showCompetencias, setShowCompetencias] = useState(false);
   const [fadeHero, setFadeHero] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
+
+  // ... (todo o seu código useEffect permanece o mesmo) ...
 
   useEffect(() => {
     if (loading) {
@@ -78,23 +81,27 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen w-full">
-      {/* Barra de progresso do scroll */}
+    // A classe `bg-gray-950` foi removida deste div
+    <div>
       <div id="scroll-progress-bar" ref={progressBarRef} />
-      {/* Conteúdo principal */}
-      <div
-        className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
-        style={{ minHeight: '100vh' }}
-      >
-        <HeroSection animateIn={heroVisible} />
-      </div>
-      <div
-        className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <CompetenciasPanel />
-        <FinexPanel />
-        <ProjetosCarousel />
-      </div>
+      
+      <main>
+        <div
+          className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
+          style={{ minHeight: '100vh' }}
+        >
+          <HeroSection animateIn={heroVisible} />
+        </div>
+        <div
+          className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <CompetenciasPanel />
+          <FinexPanel />
+          <ProjetosCarousel />
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
