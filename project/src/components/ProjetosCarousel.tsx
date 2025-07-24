@@ -1,34 +1,39 @@
-import React, { useState, useRef } from 'react'; 
+import React, { useState, useRef } from 'react';
 
 import africa360Img from '../assets/images/projetos/Africa360.png';
 import finexDevImg from '../assets/images/projetos/FinexDev.png';
 import finexSiteImg from '../assets/images/projetos/Finexsite.png';
 import jcStudiosImg from '../assets/images/projetos/JCstudios.png';
 
+
 const meusProjetos = [
   {
     titulo: 'Landing Page da Finex Solutions',
     descricao: 'Com colaboração da equipe da Finex Solutions, desenvolvemos uma landing page moderna e responsiva. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
     imagem: finexSiteImg,
-    cor: '#0a2761ff' 
+    corFundo: '#0a2761', 
+    corCard: '#061a40'   
   },
   {
     titulo: 'Plataforma FinexDev',
     descricao: 'Site com finalidade de demonstrar as habilidades da nossa equipe de desenvolvimento, com foco em projetos de software e soluções tecnológicas. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
     imagem: finexDevImg,
-    cor: '#2e0d55ff' 
+    corFundo: '#2e0d55',
+    corCard: '#1e0838'
   },
   {
     titulo: 'Landing Page JC Studios',
     descricao: 'Website para a JC Studios, uma empresa de web design. O site é responsivo e otimizado para dispositivos móveis assim como os outros. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
     imagem: jcStudiosImg,
-    cor: '#424242' 
+    corFundo: '#2a2a2e', 
+    corCard: '#1c1c1e'   
   },
   {
     titulo: 'Site do Projeto Africa360',
     descricao: 'Website para o projeto Africa360, que visa promover a cultura africana através de uma plataforma digital. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
     imagem: africa360Img,
-    cor: '#6d5537ff' 
+    corFundo: '#6d5537',
+    corCard: '#4a3b26'
   }
 ];
 
@@ -59,7 +64,8 @@ const ProjetosCarousel: React.FC = () => {
 
   const projeto = meusProjetos?.[projetoAtual];
 
-  const corDeFundoAtual = projeto ? projeto.cor : '#2a2a2e';
+  const corDeFundoAtual = projeto ? projeto.corFundo : '#2a2a2e';
+  const corDoCardAtual = projeto ? projeto.corCard : '#1c1c1e';
 
   if (!projeto) {
     return (
@@ -75,8 +81,7 @@ const ProjetosCarousel: React.FC = () => {
     <>
       <style>{`
         .container-geral {
-          /* A cor de fundo será definida via style inline, mas mantemos uma padrão */
-          background-color: #2a2a2e; 
+          background-color: #2a2a2e; /* Cor padrão */
           width: 100%;
           min-height: 100vh;
           display: flex;
@@ -86,7 +91,6 @@ const ProjetosCarousel: React.FC = () => {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           position: relative;
           overflow: hidden;
-          /* Adicionada a transição para a mudança de cor suave */
           transition: background-color 0.5s ease-in-out; 
         }
         .bg-noise::before {
@@ -112,12 +116,13 @@ const ProjetosCarousel: React.FC = () => {
           z-index: 1;
         }
         .carousel-card {
-          background-color: #1c1c1e;
+          background-color: #1c1c1e; /* Cor padrão */
           width: 100%;
           text-align: center;
-          border-radius: 8px;
+          border-radius: 30px;
           overflow: hidden;
           box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+          transition: background-color 0.5s ease-in-out;
         }
         .carousel-conteudo { padding: 30px; }
         .carousel-imagem {
@@ -197,8 +202,12 @@ const ProjetosCarousel: React.FC = () => {
         }
       `}</style>
 
-      {/* A cor de fundo é aplicada dinamicamente aqui */}
       <div className="container-geral bg-noise" style={{ backgroundColor: corDeFundoAtual }}>
+        
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 flex justify-center w-full">
+          <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
+        </div>
+
         <div className="carousel-wrapper">
           
           <div className="navegacao-desktop">
@@ -209,8 +218,8 @@ const ProjetosCarousel: React.FC = () => {
               <span className="botao-texto">&#8594;</span>
             </button>
           </div>
-
-          <div className="carousel-card">
+          
+          <div className="carousel-card" style={{ backgroundColor: corDoCardAtual }}>
             <div className="carousel-conteudo">
               <img src={imagem} alt={`Imagem do projeto ${titulo}`} className="carousel-imagem" />
               <h2 className="carousel-titulo">{titulo}</h2>

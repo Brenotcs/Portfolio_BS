@@ -16,8 +16,6 @@ function App() {
   const [fadeHero, setFadeHero] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  // ... (todo o seu código useEffect permanece o mesmo) ...
-
   useEffect(() => {
     if (loading) {
       const timer = setTimeout(() => setFadeOut(true), 3000);
@@ -81,7 +79,6 @@ function App() {
   }
 
   return (
-    // A classe `bg-gray-950` foi removida deste div
     <div>
       <div id="scroll-progress-bar" ref={progressBarRef} />
       
