@@ -77,6 +77,10 @@ const Sidebar: React.FC = () => {
                      -translate-x-full group-hover/sidebar:translate-x-0
                      ${isOpen ? '!translate-x-0' : ''}`}
         >
+          <div className="hidden sm:flex absolute top-6 left-1/2 -translate-x-1/2 z-30 justify-center w-full">
+            <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
+          </div>
+
           <header className="h-[72px] w-full"></header>
           <nav className="flex flex-col items-center mt-6">
             <NavItem href="#home" icon={<HiOutlineHome size={24} />} label="Home" />

@@ -41,7 +41,6 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // ALTERAÇÃO: Atualizado de 'competencias' para 'sobre-mim' para corresponder ao novo ID.
       const sobreMimSection = document.getElementById('sobre-mim');
       if (sobreMimSection) {
         const rect = sobreMimSection.getBoundingClientRect();
@@ -88,7 +87,6 @@ function App() {
         <div id="scroll-progress-bar" ref={progressBarRef} />
         
         <main>
-          {/* ALTERAÇÃO: Adicionado <section> com id="home" para a navegação */}
           <section
             id="home"
             className={`relative w-full transition-opacity duration-700 z-20 ${heroVisible ? 'opacity-100' : 'opacity-0'} ${fadeHero ? 'opacity-0' : ''}`}
@@ -97,11 +95,9 @@ function App() {
             <HeroSection animateIn={heroVisible} />
           </section>
 
-          {/* Este div continua controlando a animação de fade-in para o bloco de conteúdo abaixo */}
           <div
             className={`relative z-10 transition-opacity duration-500 ${showCompetencias ? 'opacity-100' : 'opacity-0'}`}
           >
-            {/* ALTERAÇÃO: Cada componente agora está em sua própria <section> com seu respectivo ID */}
             <section id="sobre-mim">
               <CompetenciasPanel />
             </section>
