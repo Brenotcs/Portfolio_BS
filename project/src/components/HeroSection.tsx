@@ -84,14 +84,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ animateIn }) => {
         </p>
       </motion.div>
 
-      {/* Ícone de seta para baixo */}
       <motion.button
         initial={{ opacity: 0, y: 20 }}
         animate={showRestOfName ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ delay: 1.8, duration: 1.0, ease: "easeOut" }}
-        className="z-20 mb-8 flex flex-col items-center"
+        className="z-20 absolute bottom-6 left-0 right-0 flex justify-center"
         aria-label="Ir para próxima sessão"
-        style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)' }}
         onClick={() => {
           const section = document.getElementById('competencias');
           if (section) {
