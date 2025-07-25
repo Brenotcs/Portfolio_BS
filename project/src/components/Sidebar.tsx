@@ -1,5 +1,3 @@
-// src/components/Sidebar.tsx
-
 import React, { useState } from 'react';
 import {
   HiOutlineMenuAlt2,
@@ -62,17 +60,23 @@ const Sidebar: React.FC = () => {
         {isOpen ? <HiX size={32} /> : <HiOutlineMenuAlt2 size={32} />}
       </button>
 
+      <div
+        className={`
+          sm:hidden fixed top-6 left-0 z-30 w-[72px] flex justify-center
+          transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-[72px]' : '-translate-x-full'}
+        `}
+      >
+        <span className="font-orbitron text-xs tracking-widest text-white/60 select-none">BS</span>
+      </div>
+
       <div className="group/sidebar fixed top-0 left-0 h-full z-30">
         <aside
           className={`h-full w-[72px] bg-[#14274C]/30 backdrop-blur-lg
-                      transition-transform duration-300 ease-in-out
-                      -translate-x-full group-hover/sidebar:translate-x-0
-                      ${isOpen ? '!translate-x-0' : ''}`}
+                     transition-transform duration-300 ease-in-out
+                     -translate-x-full group-hover/sidebar:translate-x-0
+                     ${isOpen ? '!translate-x-0' : ''}`}
         >
-          <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 flex justify-center w-full">
-            <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
-          </div>
-
           <header className="h-[72px] w-full"></header>
           <nav className="flex flex-col items-center mt-6">
             <NavItem href="#home" icon={<HiOutlineHome size={24} />} label="Home" />
