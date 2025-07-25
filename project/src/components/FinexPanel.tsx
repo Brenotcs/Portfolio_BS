@@ -23,7 +23,7 @@ const FinexPanel: React.FC = () => {
         />
 
         <div className="flex flex-col items-center text-white w-full p-8">
-          <p className="text-[13px] font-normal mb-8 opacity-60 max-w-[460px] text-center">
+          <p className="text-[13px] font-normal mb-8 opacity-60 max-w-[460px] text-justify">
           Além de tudo, estou junto com a Finex Solutions como CIO e Project Manager, onde atuo na gestão de projetos e na implementação de soluções tecnológicas inovadoras. Minha experiência juntamente à Finex também envolve o desenvolvimento de softwares personalizados, tecnologias modernas e soluções escaláveis, tudo isso com o objetivo de transformar suas ideias em soluções digitais eficientes.
           </p>
           

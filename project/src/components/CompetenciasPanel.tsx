@@ -30,8 +30,8 @@ const CompetenciasPanel: React.FC = () => {
 
         {/* Conteúdo */}
         <div className="relative z-10 flex flex-col items-center md:items-start text-white w-full p-8 pt-0 md:p-0 md:pl-8">
-          <p className="text-[13px] font-normal mb-8 opacity-50 max-w-[360px] text-center md:text-left">
-          Meu nome é Breno, sou desenvolvedor web fullstack e apaixonado por tecnologia. Minha jornada começou com pequenos projetos e hoje crios soluções digitais modernas e eficientes. No contexto acadêmico estou cursando Análise e Desenvolvimento de Sistemas e Engenharia de Software, e estou sempre buscando aprender e crescer como desenvolvedor.
+          <p className="text-[13px] font-normal mb-8 opacity-50 max-w-[360px] text-justify">
+            Meu nome é Breno, sou desenvolvedor web fullstack e apaixonado por tecnologia. Minha jornada começou com pequenos projetos e hoje crio soluções digitais modernas e eficientes. No contexto acadêmico estou cursando Análise e Desenvolvimento de Sistemas e Engenharia de Software, estou sempre buscando aprender e crescer como desenvolvedor.
           </p>
           
           <div className="socials flex gap-4 justify-center md:justify-start w-full">
@@ -99,7 +99,6 @@ const CompetenciasPanel: React.FC = () => {
           .card {
             padding: 0 32px 48px 32px;
             margin-top: 100px; /* Espaço para a foto acima */
-            text-align: center;
           }
           .card img {
             width: 250px;
@@ -113,7 +112,6 @@ const CompetenciasPanel: React.FC = () => {
           }
         }
 
-      
         @media (max-width: 440px) {
           .card img {
             width: 50vw;

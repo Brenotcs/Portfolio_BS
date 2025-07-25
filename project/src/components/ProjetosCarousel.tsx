@@ -132,7 +132,13 @@ const ProjetosCarousel: React.FC = () => {
           margin-bottom: 20px;
         }
         .carousel-titulo { font-size: 2.2rem; color: #e6f1ff; margin-bottom: 10px; }
-        .carousel-descricao { font-size: 1rem; line-height: 1.5; color: #a8b2d1; min-height: 90px; }
+        .carousel-descricao { 
+          font-size: 1rem; 
+          line-height: 1.5; 
+          color: #a8b2d1; 
+          min-height: 90px; 
+          text-align: justify;
+        }
         
         .nav-botao {
           cursor: pointer;
@@ -197,7 +203,11 @@ const ProjetosCarousel: React.FC = () => {
           .carousel-conteudo { padding: 25px; }
           .carousel-imagem { height: 200px; }
           .carousel-titulo { font-size: 1.8rem; }
-          .carousel-descricao { font-size: 0.95rem; min-height: 100px; }
+          .carousel-descricao { 
+            font-size: 0.95rem; 
+            min-height: 100px;
+            text-align: justify;
+          }
         }
       `}</style>
 
