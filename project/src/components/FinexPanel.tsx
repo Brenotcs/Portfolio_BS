@@ -43,7 +43,7 @@ const FinexPanel: React.FC = () => {
               className="relative grid place-items-center w-[52px] h-[52px] text-white group transition-transform duration-300 hover:scale-110"
             >
               <span className="absolute inset-0 z-0 rounded-full bg-gradient-to-br from-gray-500 to-gray-700 opacity-80 transition-all duration-300 group-hover:opacity-100"></span>
-              <FontAwesomeIcon icon={faLink} className="relative z-10 text-[26px]" />
+              <FontAwesomeIcon icon={faLink as any} className="relative z-10 text-[26px]" />
             </a>
             
           </div>
