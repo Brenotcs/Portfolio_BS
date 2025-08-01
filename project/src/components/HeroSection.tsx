@@ -48,10 +48,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ animateIn }) => {
         transition={{ duration: 0.9, ease: 'easeOut' }}
         className="z-10 flex flex-col items-center text-center"
       >
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 flex flex-col justify-center items-center">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-300 flex flex-col justify-center items-center font-orbitron">
           
           {/* Linha "Breno" */}
-          <span className="font-orbitron flex items-baseline">
+          <span className="flex items-baseline">
             B
             <motion.span
               variants={nameRevealVariants}
@@ -64,7 +64,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ animateIn }) => {
           </span>
 
           {/* Linha "Souza" */}
-          <span className="font-orbitron flex items-baseline">
+          <span className="flex items-baseline">
             S
             <motion.span
               variants={nameRevealVariants}

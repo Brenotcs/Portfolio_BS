@@ -13,7 +13,7 @@ const CompetenciasPanel: React.FC = () => {
       id="competencias"
       className="w-full min-h-screen flex flex-col justify-center items-center bg-black relative overflow-hidden bg-noise py-16"
     >
-      {/* Logo BS no topo */}
+      {/* Logo BS no topo com a fonte Orbitron */}
       <div className="absolute top-6 left-1/2 -translate-x-1/2 z-30 flex justify-center w-full">
         <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
       </div>

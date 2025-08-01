@@ -9,7 +9,13 @@ import {
 
 import finexLogo from '../assets/images/FINEXLOGO.COR.B-8.png';
 
-const NavItem = ({ href, icon, label }: { href: string; icon: React.ReactNode | string; label: string }) => {
+// 1. NavItem agora aceita uma nova prop 'onItemClick'
+const NavItem = ({ href, icon, label, onItemClick }: { 
+  href: string; 
+  icon: React.ReactNode | string; 
+  label: string;
+  onItemClick?: () => void; // Prop opcional para fechar o menu
+}) => {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = href.substring(1);
@@ -17,6 +23,11 @@ const NavItem = ({ href, icon, label }: { href: string; icon: React.ReactNode | 
 
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // 2. Chama a função para fechar o menu, se ela foi passada
+    if (onItemClick) {
+      onItemClick();
     }
   };
   
@@ -49,6 +60,11 @@ const Sidebar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  // 3. Função específica para fechar a sidebar
+  const closeSidebar = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <button
@@ -60,6 +76,7 @@ const Sidebar: React.FC = () => {
         {isOpen ? <HiX size={32} /> : <HiOutlineMenuAlt2 size={32} />}
       </button>
 
+      {/* LOGO PARA MOBILE */}
       <div
         className={`
           sm:hidden fixed top-6 left-0 z-30 w-[72px] flex justify-center
@@ -77,16 +94,18 @@ const Sidebar: React.FC = () => {
                      -translate-x-full group-hover/sidebar:translate-x-0
                      ${isOpen ? '!translate-x-0' : ''}`}
         >
+          {/* LOGO PARA DESKTOP */}
           <div className="hidden sm:flex absolute top-6 left-1/2 -translate-x-1/2 z-30 justify-center w-full">
             <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
           </div>
 
           <header className="h-[72px] w-full"></header>
+          {/* 4. Passamos a função 'closeSidebar' para cada NavItem */}
           <nav className="flex flex-col items-center mt-6">
-            <NavItem href="#home" icon={<HiOutlineHome size={24} />} label="Home" />
-            <NavItem href="#sobre-mim" icon={<HiOutlineUser size={24} />} label="Sobre Mim" />
-            <NavItem href="#finex" icon={finexLogo} label="Finex" />
-            <NavItem href="#projetos" icon={<HiOutlineBriefcase size={24} />} label="Projetos" />
+            <NavItem href="#home" icon={<HiOutlineHome size={24} />} label="Home" onItemClick={closeSidebar} />
+            <NavItem href="#sobre-mim" icon={<HiOutlineUser size={24} />} label="Sobre Mim" onItemClick={closeSidebar} />
+            <NavItem href="#finex" icon={finexLogo} label="Finex" onItemClick={closeSidebar} />
+            <NavItem href="#projetos" icon={<HiOutlineBriefcase size={24} />} label="Projetos" onItemClick={closeSidebar} />
           </nav>
         </aside>
       </div>

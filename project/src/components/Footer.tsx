@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#0D1732] text-white pt-20 pb-40 w-full">
       
-      {/* Logo BS */}
+      {/* Logo BS com a fonte Orbitron */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 z-30 flex justify-center w-full">
         <span className="font-orbitron text-xs sm:text-sm md:text-base tracking-widest text-white/60 select-none">BS</span>
       </div>

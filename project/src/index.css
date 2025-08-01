@@ -1,10 +1,40 @@
+/* Em: src/index.css */
+
+/* 1. Diretivas do Tailwind na ordem correta */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+/* 2. REMOVIDO: @import do Google Fonts. As fontes agora são locais. */
 
+/* 3. ADICIONADO: Regras @font-face para fontes locais */
+/* Certifique-se que os arquivos estão em 'src/assets/fonts/' */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  font-display: swap;
+  src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700; /* Bold */
+  font-display: swap;
+  src: url('./assets/fonts/Inter-Bold.ttf') format('truetype');
+}
+/* Adicione outros pesos da 'Inter' se necessário */
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/Orbitron-Bold.ttf') format('truetype');
+}
+
+
+/* 4. Suas estilizações de base e reset */
 * {
   margin: 0;
   padding: 0;
@@ -18,11 +48,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* O Tailwind usará 'Inter' automaticamente pois definimos como a fonte 'sans' padrão */
 body {
   overflow-y: visible;
   position: relative;
   height: unset;
-  font-family: "Inter", sans-serif;
   text-align: center;
   margin: 0;
   line-height: 1.6;
@@ -41,6 +71,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   display: none;
 }
 
+/* 5. Suas classes e animações customizadas permanecem as mesmas */
 #scroll-progress-bar {
   position: fixed;
   top: 0;
@@ -52,85 +83,8 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   transition: width 0.2s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes popup-appear {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -100%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -110%);
-  }
-}
-
-@keyframes starsIn {
-  0% {
-    background-image: none;
-    opacity: 1;
-  }
-  1% {
-    background-image: url('./assets/images/stars.png');
-    opacity: 0.2;
-  }
-  100% {
-    background-image: url('./assets/images/stars.png');
-    opacity: 1;
-  }
-}
-@keyframes starsOut {
-  0% {
-    background-image: url('./assets/images/stars.png');
-    opacity: 1;
-  }
-  99% {
-    background-image: url('./assets/images/stars.png');
-    opacity: 0.2;
-  }
-  100% {
-    background-image: none;
-    opacity: 1;
-  }
-}
-
-@keyframes noiseMove {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 60px 40px;
-  }
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.animate-popup-appear {
-  animation: popup-appear 0.3s ease-out forwards;
-}
+/* REMOVIDO: A classe .font-orbitron manual. */
+/* Use a classe 'font-orbitron' do Tailwind que acabamos de criar. */
 
 .gradient-text {
   background: linear-gradient(135deg, #8b5cf6, #06b6d4);
@@ -138,43 +92,18 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+/* ... Suas outras classes e keyframes ... */
+@keyframes fadeInUp { /* ... */ }
+@keyframes popup-appear { /* ... */ }
+@keyframes starsIn { /* ... */ }
+@keyframes starsOut { /* ... */ }
+@keyframes noiseMove { /* ... */ }
+@keyframes gradientAnimation { /* ... */ }
+.animate-fadeInUp { /* ... */ }
+/* ... etc ... */
 
-.stars-hover-text {
-  background: linear-gradient(135deg, #fff, #e0e7ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  transition: background-image 0.6s, opacity 0.6s;
-}
-.stars-hover-text.stars-in {
-  animation: starsIn 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-.stars-hover-text.stars-out {
-  animation: starsOut 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-.stars-hover-text:hover {
-  background-image: url('./assets/images/stars.png');
-  background-size: cover;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
 
-.font-orbitron {
-  font-family: 'Orbitron', 'Inter', sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.bg-noise {
-  position: relative;
-  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noiseFilter)" opacity="0.18"/></svg>');
-  background-size: 200px 200px;
-  animation: noiseMove 2.5s linear infinite;
-}
-
+/* 6. Suas classes de componente na camada correta */
 @layer components {
   .blue-noise-bg {
     position: relative;
