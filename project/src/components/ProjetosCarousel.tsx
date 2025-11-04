@@ -4,8 +4,23 @@ import africa360Img from '../assets/images/projetos/Africa360.png';
 import finexDevImg from '../assets/images/projetos/FinexDev.png';
 import finexSiteImg from '../assets/images/projetos/Finexsite.png';
 import jcStudiosImg from '../assets/images/projetos/JCstudios.png';
+import ifaImg from '../assets/images/projetos/ifa.png';
 
 const meusProjetos = [
+  {
+    titulo: 'Landing Page do Projeto IFÁ na Bahia',
+    descricao: 'Landing Page desenvolvida para o Projeto IFÁ na Bahia, que promove a cultura africana e suas conexões com a Bahia. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
+    imagem: ifaImg,
+    corFundo: '#0f4b39ff',
+    corCard: '#0c4227ff'   
+  },
+  {
+    titulo: 'Site do Projeto Africa360',
+    descricao: 'Website para o projeto Africa360, que visa promover a cultura africana através de uma plataforma digital. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
+    imagem: africa360Img,
+    corFundo: '#6d5537',
+    corCard: '#4a3b26'
+  },
   {
     titulo: 'Landing Page da Finex Solutions',
     descricao: 'Com colaboração da equipe da Finex Solutions, desenvolvemos uma landing page moderna e responsiva. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
@@ -26,13 +41,6 @@ const meusProjetos = [
     imagem: jcStudiosImg,
     corFundo: '#2a2a2e', 
     corCard: '#1c1c1e'   
-  },
-  {
-    titulo: 'Site do Projeto Africa360',
-    descricao: 'Website para o projeto Africa360, que visa promover a cultura africana através de uma plataforma digital. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
-    imagem: africa360Img,
-    corFundo: '#6d5537',
-    corCard: '#4a3b26'
   }
 ];
 

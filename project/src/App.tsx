@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import HeroSection from './components/HeroSection';
 import Loader from './components/Loader';
 import CompetenciasPanel from './components/CompetenciasPanel';
-import FinexPanel from './components/FinexPanel';
+// import FinexPanel from './components/FinexPanel'; // Comentado
 import ProjetosCarousel from './components/ProjetosCarousel';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
@@ -101,9 +101,14 @@ function App() {
             <section id="sobre-mim">
               <CompetenciasPanel />
             </section>
+            
+            {/* Sessão FinexPanel Comentada */}
+            {/*
             <section id="finex">
               <FinexPanel />
             </section>
+            */}
+            
             <section id="projetos">
               <ProjetosCarousel />
             </section>

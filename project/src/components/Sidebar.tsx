@@ -7,7 +7,7 @@ import {
   HiOutlineBriefcase,
 } from 'react-icons/hi';
 
-import finexLogo from '../assets/images/FINEXLOGO.COR.B-8.png';
+// import finexLogo from '../assets/images/FINEXLOGO.COR.B-8.png'; // Comentado
 
 // 1. NavItem agora aceita uma nova prop 'onItemClick'
 const NavItem = ({ href, icon, label, onItemClick }: { 
@@ -44,8 +44,8 @@ const NavItem = ({ href, icon, label, onItemClick }: {
       )}
       <span
         className="absolute left-full ml-4 px-3 py-2 whitespace-nowrap rounded-md text-sm font-medium
-                   bg-gray-900 text-white opacity-0 group-hover:opacity-100 transition-opacity
-                   pointer-events-none"
+                  bg-gray-900 text-white opacity-0 group-hover:opacity-100 transition-opacity
+                  pointer-events-none"
       >
         {label}
       </span>
@@ -90,9 +90,9 @@ const Sidebar: React.FC = () => {
       <div className="group/sidebar fixed top-0 left-0 h-full z-30">
         <aside
           className={`h-full w-[72px] bg-[#14274C]/30 backdrop-blur-lg
-                     transition-transform duration-300 ease-in-out
-                     -translate-x-full group-hover/sidebar:translate-x-0
-                     ${isOpen ? '!translate-x-0' : ''}`}
+                      transition-transform duration-300 ease-in-out
+                      -translate-x-full group-hover/sidebar:translate-x-0
+                      ${isOpen ? '!translate-x-0' : ''}`}
         >
           {/* LOGO PARA DESKTOP */}
           <div className="hidden sm:flex absolute top-6 left-1/2 -translate-x-1/2 z-30 justify-center w-full">
@@ -104,7 +104,8 @@ const Sidebar: React.FC = () => {
           <nav className="flex flex-col items-center mt-6">
             <NavItem href="#home" icon={<HiOutlineHome size={24} />} label="Home" onItemClick={closeSidebar} />
             <NavItem href="#sobre-mim" icon={<HiOutlineUser size={24} />} label="Sobre Mim" onItemClick={closeSidebar} />
-            <NavItem href="#finex" icon={finexLogo} label="Finex" onItemClick={closeSidebar} />
+            {/* NavItem Finex Comentado */}
+            {/* <NavItem href="#finex" icon={finexLogo} label="Finex" onItemClick={closeSidebar} /> */}
             <NavItem href="#projetos" icon={<HiOutlineBriefcase size={24} />} label="Projetos" onItemClick={closeSidebar} />
           </nav>
         </aside>
