@@ -5,8 +5,16 @@ import finexDevImg from '../assets/images/projetos/FinexDev.png';
 import finexSiteImg from '../assets/images/projetos/Finexsite.png';
 import jcStudiosImg from '../assets/images/projetos/JCstudios.png';
 import ifaImg from '../assets/images/projetos/ifa.png';
+import prospesImg from '../assets/images/projetos/Prospes.png';
 
 const meusProjetos = [
+  {
+    titulo: 'Landing Page Prospés',
+    descricao: 'Sistema desenvolvido para a Prospés, uma empresa focada em soluções e venda de produtos de podologia. Tecnologia utilizada: React.js, Tailwind CSS e etc.',
+    imagem: prospesImg,
+    corFundo: '#1a4d8f',
+    corCard: '#0f3a6d'
+  },
   {
     titulo: 'Landing Page do Projeto IFÁ na Bahia',
     descricao: 'Landing Page desenvolvida para o Projeto IFÁ na Bahia, que promove a cultura africana e suas conexões com a Bahia. Tecnologia utilizada: Node.js, React.js, Tailwind CSS e etc.',
