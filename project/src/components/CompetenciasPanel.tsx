@@ -31,7 +31,7 @@ const CompetenciasPanel: React.FC = () => {
         {/* Conteúdo */}
         <div className="relative z-10 flex flex-col items-center md:items-start text-white w-full p-8 pt-0 md:p-0 md:pl-8">
           <p className="text-[13px] font-normal mb-8 opacity-50 max-w-[360px] text-justify">
-            Meu nome é Breno, sou desenvolvedor web fullstack e apaixonado por tecnologia. Minha jornada começou com pequenos projetos e hoje crio soluções digitais modernas e eficientes. No contexto acadêmico estou cursando Análise e Desenvolvimento de Sistemas e Engenharia de Software, estou sempre buscando aprender e crescer como desenvolvedor.
+            Meu nome é Breno, sou desenvolvedor web fullstack e apaixonado por tecnologia. Minha jornada começou com pequenos projetos e hoje crio soluções digitais modernas e eficientes. Sou Tecnólogo em Análise e Desenvolvimento de Sistemas e, atualmente, dou continuidade à minha evolução acadêmica cursando Engenharia de Software. Essa combinação me permite unir a agilidade técnica da minha primeira formação com a visão estratégica e arquitetural da engenharia, buscando sempre aprender e entregar softwares de alto impacto.
           </p>
           
           <div className="socials flex gap-4 justify-center md:justify-start w-full">
